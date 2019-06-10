@@ -2,15 +2,10 @@
 'use strict';
 
 var React = require("react");
-var Component1$ReactHooksTemplate = require("./Component1.bs.js");
-var Component2$ReactHooksTemplate = require("./Component2.bs.js");
 
 function App(Props) {
-  return React.createElement("div", undefined, React.createElement("h1", undefined, "Hello, world"), React.createElement(Component1$ReactHooksTemplate.make, {
-                  message: "Hello! Click this text."
-                }), React.createElement(Component2$ReactHooksTemplate.make, {
-                  greeting: "Hey ho"
-                }));
+  var header = Props.header;
+  return React.createElement("div", undefined, React.createElement("h1", undefined, React.createElement("center", undefined, header)), React.createElement("hr", undefined));
 }
 
 var make = App;

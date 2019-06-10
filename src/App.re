@@ -1,8 +1,11 @@
 [@react.component]
-let make = () => {
+let make = (~header) => {
         <div>
-                <h1>{ReasonReact.string("Hello, world")}</h1>
-                <Component1 message="Hello! Click this text." />
-                <Component2 greeting="Hey ho" />
+                <h1>
+                        <center>
+                                {ReasonReact.string(header)}
+                        </center>
+                </h1>
+                <hr />
         </div>
 };

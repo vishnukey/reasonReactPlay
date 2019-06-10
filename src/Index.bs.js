@@ -5,6 +5,8 @@ var React = require("react");
 var ReactDOMRe = require("reason-react/src/ReactDOMRe.js");
 var App$ReactHooksTemplate = require("./App.bs.js");
 
-ReactDOMRe.renderToElementWithId(React.createElement(App$ReactHooksTemplate.make, { }), "App");
+ReactDOMRe.renderToElementWithId(React.createElement(App$ReactHooksTemplate.make, {
+          header: "Hello, world"
+        }), "App");
 
 /*  Not a pure module */
