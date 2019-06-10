@@ -9,6 +9,8 @@ type action =
   | Click
   | Toggle;
 
+ let styler = ReactDOMRe.Style.make;
+
 [@react.component]
 let make = (~greeting) => {
   let (state, dispatch) = React.useReducer((state, action) =>
@@ -19,7 +21,7 @@ let make = (~greeting) => {
 
   let message =
     "You've clicked this " ++ string_of_int(state.count) ++ " times(s)";
-  <div>
+  <div style=styler(~backgroundColor="red", ())>
     <button onClick={_event => dispatch(Click)}>
       {ReasonReact.string(message)}
     </button>
