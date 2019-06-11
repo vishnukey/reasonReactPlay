@@ -4,8 +4,6 @@
 var $$Array = require("bs-platform/lib/js/array.js");
 var React = require("react");
 
-var content = "Some big amount of conent here that doesn't really say anything. It is here nonetheless, though";
-
 var style = {
   borderStyle: "solid",
   borderWidth: "1px",
@@ -18,6 +16,7 @@ var style = {
 function App$Post(Props) {
   var id = Props.id;
   var title = Props.title;
+  var content = Props.content;
   return React.createElement("div", {
               className: "post",
               id: String(id),
@@ -28,24 +27,40 @@ function App$Post(Props) {
 }
 
 var Post = /* module */[
-  /* content */content,
   /* style */style,
   /* make */App$Post
 ];
 
+var posts = /* array */[
+  /* tuple */[
+    "Post 1",
+    "Some content here"
+  ],
+  /* tuple */[
+    "This is some other title",
+    "With some more content over here"
+  ],
+  /* tuple */[
+    "Last Post",
+    "Like the bugel song?"
+  ]
+];
+
 function App(Props) {
   var header = Props.header;
-  return React.createElement("div", undefined, React.createElement("h1", undefined, React.createElement("center", undefined, header)), React.createElement("hr", undefined), $$Array.init(8, (function (i) {
+  return React.createElement("div", undefined, React.createElement("h1", undefined, React.createElement("center", undefined, header)), React.createElement("hr", undefined), $$Array.mapi((function (i, param) {
                     return React.createElement(App$Post, {
                                 id: i,
-                                title: "Some Title",
-                                key: String(i)
+                                title: param[0],
+                                content: param[1],
+                                key: "post-" + String(i)
                               });
-                  })));
+                  }), posts));
 }
 
 var make = App;
 
 exports.Post = Post;
+exports.posts = posts;
 exports.make = make;
 /* react Not a pure module */
