@@ -3,33 +3,7 @@
 
 var $$Array = require("bs-platform/lib/js/array.js");
 var React = require("react");
-
-var style = {
-  borderStyle: "solid",
-  borderWidth: "1px",
-  marginBottom: "2px",
-  paddingRight: "3px",
-  paddingBottom: "1px",
-  paddingLeft: "3px"
-};
-
-function App$Post(Props) {
-  var id = Props.id;
-  var title = Props.title;
-  var content = Props.content;
-  return React.createElement("div", {
-              className: "post",
-              id: String(id),
-              style: style
-            }, React.createElement("span", undefined, React.createElement("strong", undefined, "#" + String(id)), React.createElement("center", undefined, React.createElement("h2", undefined, title))), React.createElement("div", {
-                  className: "post-content"
-                }, content));
-}
-
-var Post = /* module */[
-  /* style */style,
-  /* make */App$Post
-];
+var Post$ReactHooksTemplate = require("./Post.bs.js");
 
 var posts = /* array */[
   /* tuple */[
@@ -49,7 +23,7 @@ var posts = /* array */[
 function App(Props) {
   var header = Props.header;
   return React.createElement("div", undefined, React.createElement("h1", undefined, React.createElement("center", undefined, header)), React.createElement("hr", undefined), $$Array.mapi((function (i, param) {
-                    return React.createElement(App$Post, {
+                    return React.createElement(Post$ReactHooksTemplate.make, {
                                 id: i,
                                 title: param[0],
                                 content: param[1],
@@ -60,7 +34,6 @@ function App(Props) {
 
 var make = App;
 
-exports.Post = Post;
 exports.posts = posts;
 exports.make = make;
 /* react Not a pure module */
