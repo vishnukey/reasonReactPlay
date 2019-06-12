@@ -1,3 +1,7 @@
 src/App-ReactHooksTemplate.cmj :
-src/Post-ReactHooksTemplate.cmj
-src/Post-ReactHooksTemplate.cmi
+src/Switch-ReactHooksTemplate.cmj
+src/Switch-ReactHooksTemplate.cmi
+src/Switcher-ReactHooksTemplate.cmj
+src/Switcher-ReactHooksTemplate.cmi
+src/Timer-ReactHooksTemplate.cmj
+src/Timer-ReactHooksTemplate.cmi

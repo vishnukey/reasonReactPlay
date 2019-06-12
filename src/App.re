@@ -1,19 +1,34 @@
-let posts = [|
-  ("Post 1", "Some content here"),
-  ("This is some other title", "With some more content over here"),
-  ("Last Post", "Like the bugel song?"),
-|];
+type timerState =
+  | Pomo
+  | Short
+  | Long;
 
 let style = ReactDOMRe.Style.make(~fontFamily="serif", ());
 
 [@react.component]
-let make = (~header) =>
+let make = (~header) => {
+  let (timer, changeTimer) =
+    React.useReducer((_, newTimer) => newTimer, Pomo);
   <div style>
     <h1> <center> {header |> ReasonReact.string} </center> </h1>
     <hr />
-    {posts
-     |> Array.mapi((id, (title, content)) =>
-          <Post key={"post-" ++ string_of_int(id)} id title content />
+    <center>
+      <Switcher>
+        (
+          [|
+            <Switch name="Pomodoro" onClick={_ => changeTimer(Pomo)} />,
+            <Switch name="Short Break" onClick={_ => changeTimer(Short)} />,
+            <Switch name="Long Break" onClick={_ => changeTimer(Long)} />,
+          |],
+          <div>
+            {switch (timer) {
+             | Pomo => <Timer key="pomo-timer" time=25 />
+             | Short => <Timer key="short-timer" time=5 />
+             | Long => <Timer key="long-timer" time=10 />
+             }}
+          </div>,
         )
-     |> ReasonReact.array}
+      </Switcher>
+    </center>
   </div>;
+};

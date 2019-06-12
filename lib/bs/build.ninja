@@ -30,24 +30,29 @@ rule build_cmj_cmi
 build src/App-ReactHooksTemplate.cmj |  $src_root_dir/src/App.bs.js src/App-ReactHooksTemplate.cmi : build_cmj_cmi src/App.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
-build src/Post.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Post.re
-build src/Post.mlast.d : build_deps src/Post.mlast
-build src/Post-ReactHooksTemplate.cmj |  $src_root_dir/src/Post.bs.js src/Post-ReactHooksTemplate.cmi : build_cmj_cmi src/Post.mlast
-  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
-  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
 build src/Index.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Index.re
 build src/Index.mlast.d : build_deps src/Index.mlast
 build src/Index-ReactHooksTemplate.cmj |  $src_root_dir/src/Index.bs.js src/Index-ReactHooksTemplate.cmi : build_cmj_cmi src/Index.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
-build src/Component1.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Component1.re
-build src/Component1.mlast.d : build_deps src/Component1.mlast
-build src/Component1-ReactHooksTemplate.cmj |  $src_root_dir/src/Component1.bs.js src/Component1-ReactHooksTemplate.cmi : build_cmj_cmi src/Component1.mlast
+build src/Timer.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Timer.re
+build src/Timer.mlast.d : build_deps src/Timer.mlast
+build src/Timer-ReactHooksTemplate.cmj |  $src_root_dir/src/Timer.bs.js src/Timer-ReactHooksTemplate.cmi : build_cmj_cmi src/Timer.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
-build src/Component2.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Component2.re
-build src/Component2.mlast.d : build_deps src/Component2.mlast
-build src/Component2-ReactHooksTemplate.cmj |  $src_root_dir/src/Component2.bs.js src/Component2-ReactHooksTemplate.cmi : build_cmj_cmi src/Component2.mlast
+build src/Switch.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Switch.re
+build src/Switch.mlast.d : build_deps src/Switch.mlast
+build src/Switch-ReactHooksTemplate.cmj |  $src_root_dir/src/Switch.bs.js src/Switch-ReactHooksTemplate.cmi : build_cmj_cmi src/Switch.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
+build src/Switcher.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Switcher.re
+build src/Switcher.mlast.d : build_deps src/Switcher.mlast
+build src/Switcher-ReactHooksTemplate.cmj |  $src_root_dir/src/Switcher.bs.js src/Switcher-ReactHooksTemplate.cmi : build_cmj_cmi src/Switcher.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
+build src/TimerButton.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/TimerButton.re
+build src/TimerButton.mlast.d : build_deps src/TimerButton.mlast
+build src/TimerButton-ReactHooksTemplate.cmj |  $src_root_dir/src/TimerButton.bs.js src/TimerButton-ReactHooksTemplate.cmi : build_cmj_cmi src/TimerButton.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
 rule build_package
@@ -55,4 +60,4 @@ rule build_package
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build ReactHooksTemplate.cmi : build_package ReactHooksTemplate.mlmap
-build build.ninja : phony  ||  ReactHooksTemplate.cmi src/Component2.mlast.d src/Component1.mlast.d src/Index.mlast.d src/Post.mlast.d src/App.mlast.d
+build build.ninja : phony  ||  ReactHooksTemplate.cmi src/TimerButton.mlast.d src/Switcher.mlast.d src/Switch.mlast.d src/Timer.mlast.d src/Index.mlast.d src/App.mlast.d
