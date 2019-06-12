@@ -1,4 +1,5 @@
-ReactDOMRe.renderToElementWithId(<App header="Hello, world"/>, "App");
+//[%bs.raw {|require('./Index.css')|}];
+ReactDOMRe.renderToElementWithId(<App header="Hello, world" />, "App");
 
 //ReactDOMRe.renderToElementWithId(<Component1 message="Hello! Click this text." />, "index1");
 

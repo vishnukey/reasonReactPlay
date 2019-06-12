@@ -4,9 +4,11 @@ let posts = [|
   ("Last Post", "Like the bugel song?"),
 |];
 
+let style = ReactDOMRe.Style.make(~fontFamily="serif", ());
+
 [@react.component]
 let make = (~header) =>
-  <div>
+  <div style>
     <h1> <center> {header |> ReasonReact.string} </center> </h1>
     <hr />
     {posts
