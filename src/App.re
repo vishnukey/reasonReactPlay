@@ -10,8 +10,8 @@ let make = (~header) =>
     <h1> <center> {header |> ReasonReact.string} </center> </h1>
     <hr />
     {posts
-     |> Array.mapi((i, (title, content)) =>
-          <Post key={"post-" ++ string_of_int(i)} id=i title content />
+     |> Array.mapi((id, (title, content)) =>
+          <Post key={"post-" ++ string_of_int(id)} id title content />
         )
      |> ReasonReact.array}
   </div>;
